@@ -1,0 +1,3 @@
+## lib-common
+
+Allgemeine Hilfsroutinen
