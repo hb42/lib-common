@@ -9,7 +9,7 @@ var fs = require('fs');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const { CheckerPlugin } = require('awesome-typescript-loader');
+const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const nodeExternals = require('webpack-node-externals');
 
 /**
@@ -196,14 +196,15 @@ module.exports = function(env) {
 
         {
           test   : /\.scss$/,
-          loaders: ['style-loader',
-            ExtractTextPlugin.extract({
-                                        fallbackLoader: "style-loader",
-                                        loader        : "css-loader?sourceMap"
-                                      }),
-            'sass-loader' + '?outputStyle=expanded' + '&' + 'root=' + sourceDir
-            + '&' + 'includePaths[]' + npmRoot + '&' + 'includePaths[]' + sourceDir
-          ]
+          loaders: ['to-string-loader', 'css-loader', 'sass-loader'],
+          // loaders: ['style-loader',
+          //   ExtractTextPlugin.extract({
+          //                               fallbackLoader: "style-loader",
+          //                               loader        : "css-loader?sourceMap"
+          //                             }),
+          //   'sass-loader' + '?outputStyle=expanded' + '&' + 'root=' + sourceDir
+          //   + '&' + 'includePaths[]' + npmRoot + '&' + 'includePaths[]' + sourceDir
+          // ]
         },
 
         /* Raw loader support for *.html
@@ -230,9 +231,10 @@ module.exports = function(env) {
       ],
 
       noParse: [
-        sonstDir,
+        // sonstDir,
         /\.min\.js/,
-        npmRoot + '/zone.js/dist',
+        /\/@types\/mongoose/,
+        // npmRoot + '/zone.js/dist',
       ]
     },
 
