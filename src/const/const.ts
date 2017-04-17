@@ -12,5 +12,5 @@ export const loginURL = "/login";
 export const keepaliveURL = "/keepalive";
 // f. client keepalive (cookie laeuft 24h)
 export const keepaliveMinutes = 5;
-// IN: sessionData OUT: "OK" | "ERROR"
-export const saveSessionURL = "/setuserdata";
+// URl f. wepapp (static content)
+export const staticURL = "/app";
