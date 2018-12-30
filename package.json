@@ -1,20 +1,29 @@
 {
   "name": "@hb42/lib-common",
-  "version": "0.0.1-alpha.19",
+  "version": "1.0.0",
+  "copyright": "Copyright (c) 2018 Hartmut Bauer",
   "description": "Common objects for client + servers",
-  "main": "dist/lib-common.js",
-  "module": "index.ts",
+  "main": "lib/index.js",
+  "typings": "./lib",
   "scripts": {
+    "clean:lib": "./node_modules/.bin/rimraf lib",
+    "clean:tmp": "./node_modules/.bin/rimraf tmp",
+    "clean": "npm run clean:lib && npm run clean:tmp",
+    "build:nv": "npm run clean && tsc",
+    "build": "npm run build:nv && npm --no-git-tag-version version patch ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hb",
   "license": "MIT",
-  "private": true,
+  "repository": "hb42/lib-common",
+  "publishConfig": {
+    "registry": "http://e077npm"
+  },
   "peerDependencies": {},
   "devDependencies": {
-    "angular2-template-loader": "^0.6.0",
-    "tslint": "^5.0.0",
-    "typescript": "^2.0.0"
-  },
-  "buildnumber": 19
+    "copyfiles": "^2.1.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
 }

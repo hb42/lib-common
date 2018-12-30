@@ -1,5 +1,4 @@
 ## lib-common
 
-Allgemeine Hilfsroutinen
+Allgemeine Hilfsroutinen und Konstanten
 
-Kein eigenes Paket, lib wird ins verwendende Projekt gelinkt (-> link-to.sh)
