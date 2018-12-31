@@ -1,6 +1,6 @@
 {
   "name": "@hb42/lib-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "copyright": "Copyright (c) 2018 Hartmut Bauer",
   "description": "Common objects for client + servers",
   "main": "lib/index.js",
@@ -9,8 +9,8 @@
     "clean:lib": "./node_modules/.bin/rimraf lib",
     "clean:tmp": "./node_modules/.bin/rimraf tmp",
     "clean": "npm run clean:lib && npm run clean:tmp",
-    "build:nv": "npm run clean && tsc",
-    "build": "npm run build:nv && npm --no-git-tag-version version patch ",
+    "build": "npm run clean && tsc",
+    "make": "npm run build && npm --no-git-tag-version version patch && npm pack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hb",
