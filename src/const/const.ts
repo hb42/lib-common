@@ -8,10 +8,6 @@
 export const authURL = "/authenticate";
 // IN: { token: <token> } OUT: JWT
 export const loginURL = "/login";
-// IN: void OUT: "OK" | error
-export const keepaliveURL = "/keepalive";
-// f. client keepalive (cookie laeuft 24h)
-export const keepaliveMinutes = 5;
 // URl f. webapp (static content)
 export const staticURL = "/app";
 // JWT token header
