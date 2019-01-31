@@ -12,15 +12,12 @@
     "build": "npm run clean && tsc",
     "commit": "git add -A ./lib && git commit -m \"package\" ./lib",
     "push": "git push && git push --tags",
-    "make": "npm run build && npm run commit && npm version prerelease --preid=beta && npm run push",
-    "release": "npm run build && npm run commit && npm version patch && npm run push"
+    "make": "npm run build && npm run commit && npm version prerelease --preid=beta",
+    "release": "npm run build && npm run commit && npm version patch"
   },
   "author": "hb",
   "license": "MIT",
   "repository": "hb42/lib-common",
-  "publishConfig": {
-    "registry": "http://e077npm"
-  },
   "peerDependencies": {},
   "devDependencies": {
     "copyfiles": "^2.1.0",
