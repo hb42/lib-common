@@ -10,7 +10,7 @@
     "clean:tmp": "./node_modules/.bin/rimraf tmp",
     "clean": "npm run clean:lib && npm run clean:tmp",
     "build": "npm run clean && tsc",
-    "commit": "git add -A ./lib && git commit -a -m \"package\" ./lib",
+    "commit": "git add -A ./lib && git commit -m \"package\" ./lib",
     "push": "git push && git push --tags",
     "make": "npm run build && npm run commit && npm version prerelease --preid=beta && npm run push",
     "release": "npm run build && npm run commit && npm version patch && npm run push"
