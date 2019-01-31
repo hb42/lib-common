@@ -10,8 +10,10 @@
     "clean:tmp": "./node_modules/.bin/rimraf tmp",
     "clean": "npm run clean:lib && npm run clean:tmp",
     "build": "npm run clean && tsc",
-    "make": "npm run build && npm --no-git-tag-version version prerelease --preid=beta && npm pack",
-    "release": "npm run build && npm --no-git-tag-version version patch && npm pack"
+    "commit": "git add -A ./lib && git commit -a -m \"package\" ./lib",
+    "push": "git push && git push --tags",
+    "make": "npm run build && npm run commit && npm version prerelease --preid=beta && npm run push",
+    "release": "npm run build && npm run commit && npm version patch && npm run push"
   },
   "author": "hb",
   "license": "MIT",
