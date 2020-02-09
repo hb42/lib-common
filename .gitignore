@@ -12,6 +12,8 @@
 *.zip
 *.log
 /div
+/lib
+*.tgz
 
 # os
 .DS_STORE

@@ -1,6 +1,6 @@
 {
   "name": "@hb42/lib-common",
-  "version": "1.0.3",
+  "version": "1.0.4-beta.3",
   "copyright": "Copyright (c) 2018-2019 Hartmut Bauer",
   "description": "Common objects for client + servers",
   "main": "lib/index.js",
@@ -10,24 +10,26 @@
     "clean:tmp": "./node_modules/.bin/rimraf tmp",
     "clean": "npm run clean:lib && npm run clean:tmp",
     "build": "npm run clean && tsc",
+    "pack": "./node_modules/.bin/rimraf *.tgz && npm pack && ./node_modules/.bin/copyfiles *.tgz ../_dist",
     "commit": "git add -A ./lib && git commit -m \"publish npm package\" ./lib",
-    "make": "npm run build && npm run commit && npm version prerelease --preid=beta",
-    "release:patch": "npm run build && npm run commit && npm version patch",
-    "release:minor": "npm run build && npm run commit && npm version minor",
-    "release:major": "npm run build && npm run commit && npm version major",
+    "make": "npm --no-git-tag-version version prerelease --preid=beta && npm run build && npm run pack",
+    "release:patch": "npm version patch && npm run build && npm run pack",
+    "release:minor": "npm version minor && npm run build && npm run pack",
+    "release:major": "npm version major && npm run build && npm run pack",
     "release": "npm run release:patch"
   },
   "author": "hb",
   "license": "MIT",
+  "private": true,
   "repository": "hb42/lib-common",
   "config": {
     "platform": "win"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "copyfiles": "^2.1.0",
-    "rimraf": "^2.6.3",
-    "tslint": "^5.12.1",
-    "typescript": "^3.2.4"
+    "copyfiles": "^2.2.0",
+    "rimraf": "^2.7.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.5"
   }
 }
