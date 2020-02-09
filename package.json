@@ -1,6 +1,6 @@
 {
   "name": "@hb42/lib-common",
-  "version": "1.0.4-beta.3",
+  "version": "1.0.4",
   "copyright": "Copyright (c) 2018-2019 Hartmut Bauer",
   "description": "Common objects for client + servers",
   "main": "lib/index.js",
