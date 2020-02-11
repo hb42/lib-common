@@ -10,8 +10,7 @@
     "clean:tmp": "./node_modules/.bin/rimraf tmp",
     "clean": "npm run clean:lib && npm run clean:tmp",
     "build": "npm run clean && tsc",
-    "pack": "./node_modules/.bin/rimraf *.tgz && npm pack && ./node_modules/.bin/copyfiles *.tgz ../_dist",
-    "commit": "git add -A ./lib && git commit -m \"publish npm package\" ./lib",
+    "pack": "npm publish --access=public",
     "make": "npm --no-git-tag-version version prerelease --preid=beta && npm run build && npm run pack",
     "release:patch": "npm version patch && npm run build && npm run pack",
     "release:minor": "npm version minor && npm run build && npm run pack",
@@ -20,7 +19,6 @@
   },
   "author": "hb",
   "license": "MIT",
-  "private": true,
   "repository": "hb42/lib-common",
   "config": {
     "platform": "win"
