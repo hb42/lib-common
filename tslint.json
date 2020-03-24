@@ -1,10 +1,10 @@
 {
   /*
- * Possible values:
- * - the name of a built-in config
- * - the name of an NPM module which has a "main" file that exports a config object
- * - a relative path to a JSON file
- */
+   * Possible values:
+   * - the name of a built-in config
+   * - the name of an NPM module which has a "main" file that exports a config object
+   * - a relative path to a JSON file
+   */
   /*
    * Built-in configs include `tslint:latest` and `tslint:recommended`.
    *
@@ -15,8 +15,9 @@
    *   enabled which cause lint failures in your code. When TSLint reaches a major version bump, tslint:recommended will
    *   be updated to be identical to tslint:latest.
    */
-  "extends": "tslint:latest",
+  "extends": ["tslint:latest", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
+    "prettier": true,
     /*
      * Any rules specified here will override those from the base config we are extending
      */
@@ -33,15 +34,20 @@
     /* if innerhalb for(..in..) erforderlich (s. Doku) - zu aufwendig, also erstmal weglassen */
     "forin": false,
     /* sort explizit auf case-insensitive */
-    "ordered-imports": [true, {"import-sources-order": "case-insensitive", "named-imports-order": "case-insensitive"}],
+    "ordered-imports": [
+      true,
+      { "import-sources-order": "case-insensitive", "named-imports-order": "case-insensitive" }
+    ],
     /* import from rxjs/observable etc. erlauben */
-    "no-submodule-imports": [true, "rxjs"]
+    "no-submodule-imports": [true, "rxjs", true, "@angular"],
+    /* public vor private etc. wenn mal Zeit ist... */
+    "member-ordering": false
   },
   "rulesDirectory": [
     /*
      * A list of relative or absolute paths to directories that contain custom rules.
      * See the Custom Rules documentation below for more details.
      */
+    "node_modules/tslint-plugin-prettier"
   ]
-
 }
